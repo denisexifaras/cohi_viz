@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data | COHI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- styles -->
+    <link href="css/styles.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+    	#top_title{
+    		margin:10px;
+    		font-size: 30px;
+    	}
+
+    </style>
+  </head>
+  <body>
+  	<div class="header" style="background:white;">
+	     <div class="container">
+	        <div class="row">
+	           <div class="col-md-8">
+	              <!-- Logo -->
+	              <div class="logo">
+	              	<img src="http://www.cohintl.org/templates/cohi/images/logo-lg-new.png" style="height:50px;">
+	                 <!-- <h1><a href="index.html">Data@COHI</a></h1> -->
+	              </div>
+	           </div>
+	           
+	        </div>
+	     </div>
+	</div>
+
+    <div class="page-content">
+    	
+    	<div class="row">
+		  <div class="col-md-2">
+		  	<div class="sidebar content-box" style="display: block;">
+                <ul class="nav">
+                    <!-- Main menu -->
+                    <li class="current"><a href="index.html"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
+                </ul>
+             </div>
+		  </div>
+
+		  <div class="col-md-10">
+		  	<div class="row" id="top_title"></div>
+		  	<div class="row">
+		  		
+
+		  		<div class="col-md-6">
+  					<div class="content-box-large">
+		  				<div class="panel-heading">
+							<div class="panel-title">Gender Distribution</div>
+						</div>
+		  				<div class="panel-body">
+		  					<div id="piechart1" style="width:100%;height:200px"></div>
+		  				</div>
+		  			</div>
+  				</div>
+
+  				<div class="col-md-6">
+  					<div class="content-box-large">
+		  				<div class="panel-heading">
+							<div class="panel-title">Age Distribution</div>
+						</div>
+		  				<div class="panel-body">
+		  					<div id="ages_histogram" style="height: 200px;"></div>
+		  				</div>
+		  			</div>
+
+  				</div>
+
+		  	</div>
+		  	<div class="row" style="margin:5px;">
+		  	<table id="statistics" class="table table-condensed table-striped"></table>
+		  	</div>
+		  </div>
+
+		</div>
+    </div>
+
+    <footer>
+         <div class="container">
+         
+            <div class="copy text-center">
+               Copyright 2014 <a href='http://www.cohintl.org/'>COHI</a>
+            </div>
+            
+         </div>
+    </footer>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/custom.js"></script>
+
+    <script src="vendors/jquery.knob.js"></script>
+    <script src="vendors/raphael-min.js"></script>
+    <script src="vendors/morris/morris.min.js"></script>
+
+    <script src="vendors/flot/jquery.flot.js"></script>
+    <script src="vendors/flot/jquery.flot.categories.js"></script>
+    <script src="vendors/flot/jquery.flot.pie.js"></script>
+    <script src="vendors/flot/jquery.flot.time.js"></script>
+    <script src="vendors/flot/jquery.flot.stack.js"></script>
+    <script src="vendors/flot/jquery.flot.resize.js"></script>
+
+    <script type="text/javascript">
+    	var full_Data = {}
+    	var colNum = 7;
+    	for (i=0; i<colNum; i++){
+    		full_Data[i.toString()] = []
+    	}
+
+    	function isNumeric(n) {
+		  return !isNaN(parseFloat(n)) && isFinite(n);
+		}
+
+
+		function labelFormatter(label, series) {
+		    return "<div style='font-size:8pt; text-align:center; padding:2px; color:white;'>" + label + "<br/>" + Math.round(series.percent) + "%</div>";
+		}
+    </script>
+
+
+    <!-- Connect Google Sheet -->
+
+    <script src="Sheetrock/src/jquery.sheetrock.js"></script>
+    <script type="text/javascript">
+		// Define spreadsheet URL.
+		var mySpreadsheet = 'https://docs.google.com/spreadsheet/ccc?key=0AlRp2ieP7izLdGFNOERTZW0xLVpROFc3X3FJQ2tSb2c#gid=0';
+
+		var mySpreadsheet = 'https://docs.google.com/spreadsheets/d/19MUKYPKDyeOwObMI6SdPF3bUVEInEvpEvYG_de-FyO8/edit?usp=sharing#gid=0'
+
+		// Load an entire sheet.
+		$('#statistics').sheetrock({
+		  url: mySpreadsheet
+		});
+
+    </script>
+
+    <script type="text/javascript">
+
+    	var maxAge = 0;
+    	var minAge = 100;
+    	var binSize = 5;
+    	var bins = []
+    	var binBoxes = []
+    	for (i=0; i<18; i++){
+    		bins.push(5*i)
+    		tmpobj = {}
+    		tmpobj["label"] = 5*i + "-" + (5*(i+1))
+    		tmpobj["data"] = 0
+    		binBoxes.push(tmpobj)
+    	}
+    	function histData(data){
+    		for (i=1; i<bins.length; i++){
+    			curr_bin = i-1;
+    			var lower = bins[i-1]
+    			var upper = bins[i]
+    			for (j=0; j<data.length; j++){
+    				curr_age = data[j]
+    				if (curr_age >= lower && curr_age < upper){
+    					binBoxes[curr_bin]['data']+=1
+    				}
+    			}
+    		}
+    	}
+
+
+
+    </script>
+
+    <script type="text/javascript">
+    	var data = []
+    	var pie_data = []
+    	var male = {}
+    	male["data"] = 0
+    	male["label"] = "Men"
+    	var female = {}
+    	female["data"] = 0
+    	female["label"] = "Women"
+    	$( document ).ready(function(){
+
+		    
+
+    		setTimeout(function(){
+
+    			for (i=0; i<full_Data[2].length; i++){
+    				j = full_Data[2][i]
+    				if (j == "M"){
+    					male["data"] += 1
+    				}else{
+    					female["data"] += 1
+    				}
+
+    				if (i == full_Data[2].length-1){
+    					pie_data.push(male)
+    					pie_data.push(female)
+    					$.plot('#piechart1', pie_data, {
+					        series: {
+					            pie: { 
+					                show: true,
+					                radius: 1,
+					                label: {
+					                    show: true,
+					                    radius: 3/4,
+					                    formatter: labelFormatter,
+					                    background: { 
+					                        opacity: 0.5,
+					                        color: '#000'
+					                    }
+					                }
+					            }
+					        },
+					        legend: {
+					            show: false
+					        }
+					    });
+
+    				}
+    			}
+
+    			histData(full_Data[3])
+		    	// Morris Bar Chart
+				Morris.Bar({
+				    element: 'ages_histogram',
+				    data: binBoxes,
+				    xkey: 'label',
+				    ykeys: ['data'],
+				    labels: ['Age'],
+				    barRatio: 10,
+				    xLabelMargin: 10,
+				    hideHover: 'auto',
+				    barColors: ["#3d88ba"]
+				});
+
+
+    		},1000)
+
+    		
+
+    	})
+
+    </script>
+
+   
+
+  </body>
+</html>
