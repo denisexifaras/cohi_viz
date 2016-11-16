@@ -1,0 +1,30 @@
+body{
+	/*background-color: gray;*/
+	font-family: 'Open Sans', sans-serif;
+
+}
+
+#main_h1{
+	/*padding-bottom:7px;*/
+	font-size: 30px;
+}
+
+.top_header.ui-header.ui-bar-inherit{
+
+	background-color: #fef800;
+	font-size: 20px;
+	border:none;
+	height:90px;
+
+}
+
+
+.nav_button.ui-btn.ui-shadow.ui-corner-all{
+	font-size: 30px;
+	background-color: transparent;
+	border:none;
+}
+
+.top_header:hover{
+	cursor: 
+}

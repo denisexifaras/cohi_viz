@@ -1,4 +1,0 @@
-COHI Dashboard
-=====================
-
-Using Bootstrap 

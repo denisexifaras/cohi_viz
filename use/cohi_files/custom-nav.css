@@ -1,0 +1,323 @@
+/* TOP NAV */
+
+header {
+  border-bottom: 1px solid #e9e9e9;
+  min-height:105px;
+  top:0;
+  position: fixed;
+  right:0;
+  left: 0;
+  z-index: 1030;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 1px 10px 1px rgba(163,162,162,0.2);
+  -moz-box-shadow: 0px 1px 10px 1px rgba(163,162,162,0.2);
+  box-shadow: 0px 1px 10px 1px rgba(163,162,162,0.2);
+}
+
+/* Logo - overruling some responsive styles that make the logo start out too small */
+header img {
+  max-width: auto;
+  width: auto;
+}
+
+header .navbar {
+  margin-bottom: 0;
+}
+
+header .navbar .nav {
+  left: 1em;
+  top: 45px;
+}
+
+header .headerCol1, header .headerCol2, header .headerCol3 {
+  height: 90px;
+  float: left;
+}
+
+header .headerCol1 {
+  width: 30%;
+}
+
+header .headerCol2 {
+  width: 55%;
+}
+
+header .headerCol3 {
+  width: 15%;
+}
+
+.headerPadding {
+  height: 106px;
+}
+
+@media (max-width: 768px) {
+.headerPadding {
+  height: 70px;
+}
+}
+
+.navbar .btn {
+ margin: 3px 0 0 0;
+}
+
+.navbar .collapseButton {
+  float:right;
+  margin: 35px 10px 0 0;
+}
+
+.headerCol3 a {
+  float:right;
+  margin: 36px 36px 0 0;
+}
+
+@media (max-width: 979px) {
+  header .headerCol1 {
+    width: 40%;
+  }
+  header .headerCol2 {
+    width: 40%;
+  }
+  header .headerCol3 {
+    width: 20%;
+  }
+  .navbar-inner {
+    display:none;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+  min-height:0;
+  }
+  header .headerCol1, header .headerCol2 {
+  height: 68px;
+  }
+  .headerCol3 .btn, .navbar .collapseButton {
+  margin-top: 17px;
+  }
+  .headerCol3 .btn {
+  margin-right: 20px;
+  }
+  .navbar .collapseButton {
+  margin-right: 0;
+  }
+  header .headerCol1 {
+    width: 55%;
+  }
+  header .headerCol2 {
+    width: 20%;
+  }
+  header .headerCol3 {
+    width: 25%;
+    height: auto;
+  }
+  .navbar .collapseButton {
+  float:right;
+  }
+}
+
+/* Make the header shorter on small screens. */
+@media (max-width: 574px) {
+  header .headerCol1 {
+  width: 70%;
+  }
+  header .headerCol2 {
+  width: 30%;
+  }
+  header .headerCol3 {
+    display:none;
+  }
+  .navbar .collapseButton {
+  margin-top: 17px;
+  margin-right: 20px;
+  }
+}
+
+.navbar-inner {
+  margin: 0;
+  background-color: #fff;
+  background-image: -moz-linear-gradient(top, #fff, #fff);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fff), to(#fff));
+  background-image: -webkit-linear-gradient(top, #fff, #fff);
+  background-image: -o-linear-gradient(top, #fff, #fff);
+  background-image: linear-gradient(to bottom, #fff, #fff);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffffffff', GradientType=0);
+  border: 0px solid #d4d4d4;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.065);
+  -moz-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.065);
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.065);
+}
+
+/* text styling */
+
+.navbar .nav > li.divider {
+  margin-right: 2.5em;
+  /* This padding makes the hot-spot area of the text lower, so the child box doesn't disappear inappropriately */
+  padding-bottom: 3em;
+}
+
+.navbar .nav > li.divider,
+.navbar .nav > li > a, 
+.navbar .nav > li.active > a {
+  color: #1595a3;
+  text-shadow: none;
+  text-transform: uppercase;
+}
+
+/* nav link colors */
+.navbar .nav > li > a:focus,
+.navbar .nav > li > a:hover, 
+.navbar .nav > li.active > a:focus, 
+.navbar .nav > li.active > a:hover {
+  color: #1595a3;
+}
+
+.navbar .nav > .active > a,
+.navbar .nav > .active > a:hover,
+.navbar .nav > .active > a:focus {
+	color: #5c5d5f;
+	background-color: #fff;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+/* styling for child items (rollovers) */
+nav .nav-child {
+	position: absolute;
+	top: 61px;
+	left: 0;
+	z-index: 1000;
+	display: none;
+	float: left;
+	min-width: 160px;
+	padding: 25px 25px;
+	margin: 0;
+	list-style: none;
+	text-transform: none;
+	background-color: #fff;
+	border-top: 3px solid #1594a2;
+	border-left: 0;
+	border-right: 0;
+	border-bottom: 0;
+	*border: 0;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	-webkit-box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+	box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding;
+	background-clip: padding-box;
+}
+
+nav .nav-child li {
+  padding: 1em;
+}
+
+nav .nav-child li:hover {
+	background-color: #fbfbfb !important;
+}
+
+nav .nav-child a {
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 1px;
+	color: #0096a1;
+	white-space: nowrap;
+}
+
+nav .nav > li {
+	position: relative;
+}
+nav .nav > li:hover > .nav-child,
+nav .nav > li > a:focus + .nav-child {
+	display: block;
+}
+
+nav .nav-child li > a:hover,
+nav .nav-child li > a:focus,
+nav .nav-child:hover > a {
+	text-decoration: none;
+	color: #5c5d5f;
+}
+
+/* Expanded Menu Styling */
+
+@media (max-width: 979px) {
+
+header ul.nav.menu {
+  padding: 2em 0 0 0;
+  border-top: 1px solid #e9e9e9;
+}
+
+ul.nav.menu li {
+  font-size: 14px;
+  line-height: 1.5em;
+}
+
+ul.nav.menu li.divider {
+  float: left;
+  margin-bottom: 2em;
+}
+
+ul.nav.menu li.deeper {
+  margin-right: 4em;
+}
+
+/* Get rid of full-div background color for parent links in the expanded menu */
+.navbar .nav > li > a:hover, .navbar .nav > li.active > a:active {
+  background-color:transparent;
+}
+
+nav .nav-child li {
+  padding: 3px 20px 3px 10px;
+}
+
+/* Give some vertical spacing */
+.navbar .nav-child > li {
+  line-height:24px;
+}
+
+/* Get rid of carot */
+nav .nav-child:before, nav .nav-child:after {
+	display: none;
+}
+
+/* Make button align left with the menu */
+
+
+.nav-collapse .btn {
+  margin-right: 10px;
+}
+}
+
+/* FOOTER NAV (DESKTOP) */
+
+footer {
+  
+}
+
+footer .nav-pills a {
+  color: #ccc;
+
+}
+
+footer .nav-pills > .active > a,
+footer .nav-pills > .active > a:hover,
+footer .nav-pills > .active > a:focus {
+  color: #ccc;
+  background-color: #434345;
+}
+
+footer .nav-pills > li > a:hover,
+footer .nav-pills > li > a:focus {
+  text-decoration: none;
+  background-color: #747578;
+  color: #ccc;
+}

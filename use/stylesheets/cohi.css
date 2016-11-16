@@ -1,0 +1,906 @@
+/* Set Max Width */
+
+html {
+  height: 100%;
+
+  margin: 0 auto;
+  position: relative;
+}
+
+/*
+  max-width: 1283px;
+  background: #fafafa url('../images/body-bg.gif') repeat-y center;
+*/
+
+body {
+  color: #5c5d5f;
+}
+
+/* FONTS */
+
+/* Declare Fonts */
+@font-face {
+    font-family: AvenirHeavy;
+    src: url(../fonts/AvenirLTStd-Heavy.otf);
+}
+
+@font-face {
+    font-family: AvenirLight;
+    src: url(../fonts/AvenirLTStd-Light.otf);
+}
+
+/* Implement them */
+body, input, button, select, textarea {
+  font-family: AvenirLight, Arial, sans-serif;
+  height: 100%;
+}
+
+strong, b {
+  /* color: #d83e49; */
+  font-weight: normal;
+  font-family: AvenirHeavy;
+}
+
+p, article {
+  line-height: 1.8em;
+  margin: 0 0 1.5em 0;
+}
+
+/* Basic Link (teal) */
+a, a:visited {
+  color: #1595a3;
+  text-decoration: none;
+  cursor:pointer;
+}
+
+a:active, a:hover {
+  color: #5c5d5f;
+  text-decoration: underline;
+  cursor:pointer;
+}
+
+/* Alternate Link (red) */
+a.aAlt, a.aAlt:visited {
+  color: #d83e49;
+  text-decoration: none;
+}
+
+a.aAlt:active, a.aAlt:hover {
+  color: #e57780;
+  text-decoration: none;
+}
+
+a.aAlt.home, a.aAlt.home:active, a.aAlt.home:hover {
+  font-size: 1.9em;
+  font-weight: normal;
+  line-height: 1.5em;
+}
+
+@media (max-width: 950px) {
+a.aAlt.home, a.aAlt.home:active, a.aAlt.home:hover {
+  font-size: 1.2em;
+}
+}
+
+@media (max-width: 767px) {
+a.aAlt.home img {
+  margin-top: 1.5em;
+}
+}
+
+/* Headlines */
+
+h2,h3,h4,h5,h6 {
+  line-height: 1.5em;
+  font-family: AvenirLight, Arial, sans-serif;
+}
+
+h2 {
+  margin: 1em 0 1em 0;
+  font-family: AvenirHeavy, Arial, sans-serif;
+}
+
+h3 {
+  margin: 0 0 1.1em 0;
+}
+
+/* If the h3 comes after a p tag, give it some top-margin */
+p+h3 {
+  margin: 1em 0 .8em 0;
+}
+
+.table h3, .table h4 {
+  margin-top: 0;
+}
+
+h4, legend {
+  margin: 1em 0;
+}
+
+h5 {
+  margin: 1em 0 .2em 0;
+}
+
+h2 {
+  font-size: 2.2em;
+  color: #d83e49;
+}
+
+h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+h3, h4, h5, h6 {
+  color: #5c5d5f;
+}
+
+h3 {
+  font-size: 2.2em;
+}
+
+h4, legend {
+  font-size: 1.9em;
+}
+
+h5 {
+  font-size: 1.6em;
+}
+
+h5 {
+  font-size: 1.3em;
+  color: #999;
+}
+
+/* Special style for headers appearing in a panel */
+.panel h4 {
+  margin-top: 0;
+}
+
+/* The h5 gets a little snugger to the h4 inside a panel */
+.panel h5 {
+  position: relative;
+  top: -1em;
+}
+
+/* links within a header */
+h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, h2 a.aAlt:hover, h3 a.aAlt:hover, h4 a.aAlt:hover, h5 a.aAlt:hover, h6 a.aAlt:hover {
+  text-decoration: none;
+}
+
+/* Bullets in lists in various places */
+.item-page li, .content-category li, .blog li, .tag-category li {
+  line-height: 1.8em;
+  list-style-type:square;
+  /* padding-bottom: .2em; */
+}
+
+.item-page ul {
+  margin-bottom: 1.5em;
+}
+
+/* But not in a nav-pill */
+.item-page .nav-tabs li {
+  list-style-type:none;
+}
+
+/* BREADCRUMBS */
+
+.breadcrumb {
+  background-color: transparent;
+  padding: 0;
+  /* Apply negative margin to bring h2 up closer, while allowing h2 to have top margin when breadcrumb is absent */
+  margin: 2em 0 -2em 0;
+  text-align: center;
+  color: #999;
+}
+
+/* First child needs to be zeroed out, otherwise it takes up space and messes up centering */
+.breadcrumb li:first-child {
+  padding: 0;
+  width: 0;
+}
+
+.breadcrumb a {
+  color: #999;
+}
+
+/* MAIN CONTENT STYLING */
+
+.item-page, .blog, .category-list, .blog, .blog-featured, .contact-category, #xmap, .categories-list, .tag-category, .login, .search {
+  min-height: 350px;
+}
+
+.tags {
+  text-align: center;
+  font-size: .9em;
+  margin-bottom: 2em;
+}
+
+.tags:before {
+  content: 'Project Type:';
+  display: inline-block;
+  position: relative;
+  left: -.5em;
+}
+
+/* Colored content rows */
+.bgGray, .bgRed {
+  margin: 3.5em 0;
+  padding: 3em 0;
+}
+
+.bgGray {
+  background-color: #f5f5f5;
+  border-top: 1px solid #e9e9e9;
+  border-bottom: 1px solid #e9e9e9;
+}
+
+.bgRed {
+  background-color: #d93f49;
+}
+
+@media (max-width: 767px) {
+.bgGray p, .bgRed p {
+  margin-left: 1em;  
+  margin-right: 1em;  
+}
+}
+
+/* Panels and Rules */
+
+/* Rules */
+/* Apply them to an empty div - div class="rule-up" */
+/* To make it span the whole width, remove it from a "row" div */
+
+.rule-up, .rule-down, .rule {
+  width: 100%;
+  position: relative;
+  margin: 3.5em 0;
+}
+
+.rule-up, .rule {
+  border-top: 1px solid #ebe9e1;
+}
+
+.rule-down {
+  border-bottom: 1px solid #ebe9e1;
+}
+
+.rule-up:before {
+  content: '';
+  background: transparent url('../images/carot-rules-up.gif') no-repeat center; 
+  width: 100%;
+  height: 9px;
+  display: inline-block;
+  position: absolute;
+  top: -9px;
+}
+
+.rule-down:before {
+  content: '';
+  background: transparent url('../images/carot-rules-down.gif') no-repeat center; 
+  width: 100%;
+  height: 9px;
+  display: inline-block;
+  position: absolute;
+  bottom: -9px;
+}
+
+/* If a rule comes right after a p/ol/ul tag, give it more top margin */
+p + div.rule-up, p + div.rule-down, ol + div.rule-up, ol + div.rule-down, ul + div.rule-up, ul + div.rule-down, btn + rule-down, btn + rule-up {
+  margin-top: 3em;
+}
+
+/* Panels */
+/* See Fundraising page for the HTML - basically just have class="span[X] panel" */
+
+.panel, .panel-air {
+  border: 1px solid #ebe9e1;
+  position: relative;
+}
+
+.panel {
+  padding: 1em;
+}
+
+.panel-air {
+  padding: 2em;
+}
+
+.panel:before, .panel-air:before {
+  content: '';
+  background: transparent url('../images/carot-rules-up.gif') no-repeat center; 
+  width: 100%;
+  height: 9px;
+  display: inline-block;
+  position: absolute;
+  top: -9px;
+}
+
+/* TABLES */
+
+.table th {
+  font-weight: 300;
+  font-size: 1.3em;
+}
+
+@media (max-width: 767px) {
+.table {
+  font-size: .8em;
+}
+
+.table th {
+  font-family: AvenirHeavy
+}
+}
+
+/* IMAGES */
+
+.item-page img {
+  border: 1px solid #e2e2e2;
+  -ms-interpolation-mode: bicubic;
+  margin-bottom: 2em;
+}
+
+.img_caption {
+  color: #999;
+  font-size: 11px;
+  text-align: center;
+  margin-top: .5em;
+}
+
+/* Images with rollover state */
+/* Light gray border on pageload, then darker border and .7 transparency on rollover */
+
+.imgRollover {
+  border: 1px solid #e2e2e2;
+}
+
+.imgRollover-noborder {
+  border: 0 !important;
+}
+
+.imgRollover, .imgRollover-noborder, .blog .items-row img {
+  opacity: 1;
+  transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
+}
+
+.imgRollover:hover, .imgRollover-noborder:hover, .blog .items-row img:hover {
+  opacity: 0.5;
+}
+
+.imgRollover:hover {
+}
+
+/* Hide article tools from featured articles – but better to do this in joomla backend! */
+.blog-featured .btn-group.pull-right,
+.item-page .btn-group.pull-right {
+  display: none;
+}
+
+.page-header, .content-category {
+  padding: 0em;
+  border-bottom: 0;
+}
+
+/* Red header gets centered on articles and category pages */
+.page-header h2, .content-category h2 {
+  text-align: center;
+}
+
+.content-category {
+  padding-bottom: 0em;
+}
+
+/* Shortened text */
+
+article.readmore-js-collapsed, article.readmore-js-expanded {
+  line-height: 1.8em;
+  margin: 0;
+}
+
+/* CATEGORY LISTS (includes News & Press) */
+
+/* Hide filter dropdown for category lists */
+.content-category fieldset.filters {
+  display:none;
+}
+
+#adminForm {
+  margin: 0 15%;
+}
+
+@media (max-width: 1057px) {
+#adminForm {
+  margin: 0 5%;
+}
+}
+
+@media (max-width: 768px) {
+#adminForm {
+  margin: 0;
+}
+}
+
+/* BLOG */
+
+/* Image styling on blog roll */
+.blog .items-row img {
+  border-bottom: 5px solid #1595a3;
+}
+
+.blog .items-row img:hover {
+  border-bottom: 5px solid #666;
+}
+
+.blog .page-header {
+  margin: 0;
+}
+
+/* Get rid of inset shadow on well */
+.well {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+.blog .well h2 {
+  font-size: 1.4em;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+/* Styling for blog articles */
+.item-page.blogArticle p, .item-page.blogArticle ul, .item-page.blogArticle h4, .item-page.blogArticle h3 {
+  margin-left: 25%;
+  width: 50%;
+  display: block;
+  box-sizing: border-box;
+}
+
+/* Blog articles margins for tablets */
+@media (max-width: 767px) {
+.item-page.blogArticle p, .item-page.blogArticle ul, .item-page.blogArticle h4, .item-page.blogArticle h3 {
+  margin-left: 13%;
+  width: 74%;
+}
+}
+ 
+/* Blog articles margins for phones */
+@media (max-width: 480px) {
+.item-page.blogArticle p, .item-page.blogArticle h4, .item-page.blogArticle h3 {
+  margin-left: 0;
+  width: 100%;
+}
+.item-page.blogArticle ul {
+  margin-left: 4em;
+}
+}
+
+/* Blog roll page details */
+/* Remove the word "details" */
+.article-info-term, .article-info muted {
+  display:none;
+}
+
+dl {
+ margin: 0 0 1em 0;
+}
+
+dd {
+  margin: 0 0 1em 0;
+  font-size: .9em;
+  display: inline;
+}
+
+dd.published {
+  border-left: 1px solid #999;
+  margin-left: 7px;
+  padding-left: 7px;
+}
+
+/* Blog article author and date */
+.item-page dl {
+  text-align: center;
+}
+
+/* Hide this stuff in css since I don't know how to do it in joomla */
+.item-page dd span.icon-calendar, .blog dd span.icon-calendar, .item-page div.icons, .blog div.icons, .article-index, .pagenavcounter {
+  display: none;
+}
+
+/* This targets the sys-generated p tag from the blog_item.php page, removing the padding. */
+.blogIntroText p {
+  margin-bottom: 0;
+}
+
+/* Full article image */
+.pull-none.item-image img, .pull-right.item-image img, .pull-left.item-image img {
+  margin-bottom: 0em;
+}
+
+.pull-none.item-image, .pull-none.item-image div {
+   margin: 0 auto;
+   text-align: center;
+}
+.pull-none.item-image {
+  margin: 0 0 2em 0;
+}
+
+.pull-left.item-image {
+  margin: .4em 3em 1em 7em;
+}
+
+.pull-right.item-image {
+  margin: .4em 7em 1em 3em;
+}
+
+@media (max-width: 1000px) {
+.pull-left.item-image {
+  margin: .4em 3em 1em 1em;
+}
+
+.pull-right.item-image {
+  margin: .4em 1em 1em 3em;
+}
+}
+ 
+@media (max-width: 760px) {
+.blogArticle .pull-none.item-image, .blogArticle .pull-left.item-image, .blogArticle .pull-right.item-image, .blogArticle .pull-none.item-image div, .blogArticle .pull-left.item-image div, .blogArticle .pull-right.item-image div {
+   margin-left: auto;
+   margin-right: auto;
+   margin-bottom: 2em;
+   text-align: center;
+}
+}
+
+.pagenav span {
+  display:none;
+}
+
+/* Read more button */
+.blog .span8 .btn {
+  margin: 0 1em 0 0;
+}
+
+.blog .pagination {
+  margin-top: 3em;
+}
+
+/* MODALS */
+
+.modal-header h4 {
+  margin:0;
+}
+
+/* HOME PAGE */
+
+/* Jumbotron */
+
+/* Can use either cohiJumbo or cohiJumboHeader. */
+
+.cohiJumbo {
+  background-color: #fff;
+  background-size: 100% auto;
+  -webkit-background-size: 100% auto;
+  -moz-background-size: 100% auto;
+  -o-background-size: 100% auto;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin-bottom: .5em;
+}
+
+/* For tablets/phones, this centers the camera on the middle of the image and makes the image scroll instead of being fixed. */
+@media (max-width: 979px) {
+.cohiJumbo {
+  background-color: #e3e3e2;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+}
+
+.cohiJumbo h2 {
+  margin: .5em 0 0 0;
+  padding: 0;
+  text-transform: uppercase;
+  font-size: 1em;
+  font-family: AvenirHeavy, Arial, sans serif;
+}
+
+.cohiJumbo h3 {
+  margin: 0 0 15px 0;
+  padding: 8px 0;
+  font-family: AvenirHeavy, Arial, sans serif;
+  font-size: 2.5em;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.cohiJumbo p {
+  margin-top: 1em;
+}
+
+.cohiJumbo img {
+  margin: 0;
+}
+
+/* If there's an image before the h2 tag, give that image some margin. */
+.cohiJumbo img + h2 {
+  margin-top: 2em;
+}
+
+.cohiJumbo img + h3 {
+  margin-top: 1em;
+}
+
+@media (max-width: 767px) {
+.cohiJumbo .container {
+  padding: 0 2em;
+}
+}
+
+@media (max-width: 545px) {
+.cohiJumbo h3 {
+  font-size: 1.5em;
+}
+}
+
+/* All copy overlays in cohiJumbo have shadows, despite their names. */
+.whiteNoShadow h2, .whiteNoShadow h3, .whiteNoShadow p {
+  color: #fff;
+  -webkit-text-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8);
+  -moz-text-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8);
+  -ms-text-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8);
+  text-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8);
+}
+
+.blackShadow h2, .blackShadow h3, .blackShadow p {
+  color: #333;
+  text-shadow: 0px 0px 25px rgba(51,51,51,1);
+} 
+
+.blueNoShadow h2, .blueNoShadow h3, .blueNoShadow p {color: #144e69;}
+.redNoShadow h2, .redNoShadow h3, .redNoShadow p {color: #d83e49;}
+.redNoShadow p, .redNoShadow h2, .redNoShadow h3, .blueNoShadow p, .blueNoShadow h2, .blueNoShadow h3 { text-shadow: 0px 0px 25px rgba(255,255,255,1); }
+
+.cohiJumbo-copyright {
+  text-align: right;
+  font-size: .8em;
+  margin: 0 .5em 0 0;
+  padding: 0;
+}
+
+@media (max-width: 979px) {
+.cohiJumbo-copyright {
+  margin-top: -2em;
+}
+}
+
+/* Turn off div background image for IE 11/10 */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .cohiJumbo {background-color: #f5f5f5;}
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .cohiJumbo.blueNoShadow {background-color: #97d4db;}
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .cohiJumbo.redNoShadow {background-color: #f9d1d4;}
+}
+
+/* TEAM */
+
+.team .span2 {
+  text-align: center;
+}
+
+.team img {
+  margin: 0;
+}
+
+.team h4 {
+  margin: .5em 0 0 0;
+  padding:0;
+}
+
+.team .span2 p {
+  margin:0;
+  padding:0;
+  color: #999;
+}
+
+@media (max-width: 969px) {
+.team h4 {
+  font-size: 1.7em;
+}
+}
+
+/* SHOP & BABY SHOWER PAGES */
+
+.thumbnails { }
+
+.thumbnail  {
+  border: 0;
+  border-radius: 0;
+  -webkit-box-shadow: 0 0 0;
+  box-shadow: 0 0 0;
+  padding: 0;
+  background-color: inherit;
+}
+
+@media (max-width: 760px) {
+.thumbnails {
+  text-align: center;
+}
+
+.thumbnails li {
+  padding-bottom: 20px;
+}
+
+.pull-right, .pull-left {
+  float: none;
+}
+
+}
+
+.thumbnails .span4 {
+  margin-bottom: 40px;
+}
+
+/*
+.thumbnail:hover {
+  background: #ffffff url("../images/shop-thumbnail-background.gif") no-repeat left bottom; 
+}
+*/
+
+.thumbnail img {
+}
+
+/* White space before footer */
+.blog-featured {
+  margin-bottom: 0em;
+}
+
+/* Controls styling of newsletter signup form for tablets/phones */
+@media (max-width: 760px) {
+.stayinformed .btn {
+  margin-top: 1em;
+}
+}
+
+/* TABS */
+
+/* These two rules make the individual tabs centered and give them some room. */
+.nav-tabs {
+  text-align: center;
+  margin-top: 2em;
+  margin-bottom: 4em;
+}
+
+.nav-tabs > li {
+  display: inline-block;
+  float:none;
+}
+
+.nav-tabs p {
+  margin: .7em .5em .5em .7em;
+  font-size: 1.2em;
+}
+
+.navtabsh4 {
+  margin: -9px 0 .2em 0;
+}
+
+@media (max-width: 767px) {
+
+.nav-tabs > li > a {
+  padding: 6px 8px 6px 8px;
+  line-height: 20px;
+  margin-right: 0;
+}
+
+.navtabsP {
+  margin: 1.5em 0 1.5em 0;
+}
+.navtabsh4 {
+  margin: 0 0 .2em 0;
+}
+}
+
+@media (max-width: 751px) {
+.nav-tabs p {
+  margin: 0;
+  font-size: 1em;
+}
+}
+
+/* FOOTER */
+
+footer {
+  background-color: #5c5d5f;
+  min-height: auto;
+  padding: 4em 0;
+  font-weight: 300;
+  color: #ccc;
+  margin-top: 5em;
+}
+
+.footerSub {
+  font-size: .9em;
+}
+
+footer .search {
+  margin: 0;
+  min-height: 0;
+}
+
+footer form.form-search {
+  text-align: center;
+}
+
+/* Footer styling for tablets/phones */
+@media (max-width: 767px) {
+
+footer {
+  padding: 2em 0;
+}
+
+footer form.form-search.pull-right {
+  float: none;
+  text-align: left;
+}
+
+footer ul, footer form {
+  padding: 0 2em 0 2em;
+}
+
+.footerSub {
+  padding-left: 2em;
+}
+}
+
+@media (max-width: 740px) {
+
+.footerSocial {
+  margin-top: 1.5em;
+}
+
+}
+
+/* Search Results Page */
+
+/* Don't know how to make a header appear, so I need to give it more margin-top than other types of pages */
+.search {
+  margin-top: 3em;
+}
+
+/* Hide unnecessary advanced searching options */
+fieldset.only {
+  display: none;
+}
+
+#searchForm .form-limit {
+  margin-top: 2em;
+}
+
+.search-results {
+  border-top: 1px solid #ccc;
+  margin-top: 2em;
+}
+
+fieldset, .result-title {
+  margin: 2em 0 0 0;
+}
+
+/* Newsletter Archive Page */
+/* Constant contact feature. If you want to style the form, use the identifier below. */
+
+#archiveList {}
